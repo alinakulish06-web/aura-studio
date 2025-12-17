@@ -2,91 +2,55 @@
 
 {% block content %}
 
-<div class="hero-bg" style="padding: 120px 60px; min-height: 85vh; display: flex; flex-direction: column; justify-content: center;">
+<div style="
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1600948836101-f9ffda59d250?q=80&w=2036&auto=format&fit=crop');
+    height: 90vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;">
 
-    <p style="font-size: 14px; text-transform: uppercase; color: #fff; margin-bottom: 20px; letter-spacing: 2px; font-weight: 600;">
-        Est. 2025 • Kyiv
-    </p>
-
-    <div style="max-width: 800px;">
-        <h1 class="big-text" style="color: #fff;">
+    <div>
+        <h1 class="big-text" style="color: #fff; margin-bottom: 30px;" data-aos="fade-down" data-aos-duration="1200">
             МИСТЕЦТВО <br>
             <span style="font-weight: 600;">БУТИ СОБОЮ</span>
         </h1>
 
-        <div style="margin-top: 60px;">
-            <a href="{% url 'services' %}" class="btn-modern" style="background: #1a1a1a; color: #fff; border-color: #1a1a1a;">Обрати послугу</a>
-        </div>
-    </div>
+        <p style="font-size: 20px; margin-bottom: 40px; font-weight: 300;" data-aos="fade-up" data-aos-delay="200">
+            Простір твоєї краси та гармонії
+        </p>
 
-</div>
-
-<div class="dark-section">
-    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 50px;">
-        <div style="flex: 1; min-width: 300px;">
-            <h2 style="font-size: 40px; margin-bottom: 20px; font-weight: 300;">
-                АТМОСФЕРА <br> ТИШІ ТА КОМФОРТУ
-            </h2>
-        </div>
-        <div style="flex: 1; min-width: 300px;">
-            <p style="font-size: 18px; line-height: 1.8; margin-bottom: 30px; color: #ccc;">
-                AURA — це більше ніж салон. Це простір, де час зупиняється.
-                Ми використовуємо поєднання темних текстур та м'якого світла,
-                щоб створити ідеальні умови для вашого відпочинку.
-            </p>
-            <a href="{% url 'booking' %}" class="btn-modern" style="background: #fff; color: #1a1a1a; border-color: #fff;">
-                Записатися на візит
-            </a>
-        </div>
+        <a href="{% url 'booking' %}" class="btn-modern"
+           style="background: #fff; color: #1a1a1a; padding: 15px 40px; text-decoration: none; font-weight: bold; border-radius: 30px;"
+           data-aos="zoom-in" data-aos-delay="400">
+            ЗАПИСАТИСЯ ОНЛАЙН
+        </a>
     </div>
 </div>
 
-<div style="padding: 100px 60px;">
-    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px;">
-        <h3 style="font-size: 14px; text-transform: uppercase; color: #888; letter-spacing: 1px;">Selected Services</h3>
-        <a href="{% url 'services' %}" style="text-decoration: none; color: #1a1a1a; border-bottom: 1px solid #1a1a1a; padding-bottom: 5px;">Всі послуги →</a>
-    </div>
+<div class="container" style="padding: 80px 20px;">
+    <h2 style="text-align: center; margin-bottom: 50px;" data-aos="fade-up">Що ми пропонуємо?</h2>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 60px;">
-        {% for service in services %}
-        {% if forloop.counter <= 4 %}
-        <div style="border-top: 1px solid #e0e0e0; padding-top: 20px;">
-            <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                <h4 style="font-size: 24px; font-weight: 400; margin: 0;">{{ service.title }}</h4>
-                <span style="font-size: 18px; font-weight: 600;">{{ service.price }}</span>
-            </div>
-            <p style="color: #666; margin-top: 15px; font-size: 14px;">{{ service.description|truncatewords:15 }}</p>
-        </div>
-        {% endif %}
-        {% endfor %}
+    <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+
+        <a href="{% url 'services' %}" class="service-card"
+           style="flex: 1; min-width: 300px; max-width: 400px; padding: 40px; background: #f9f9f9; text-align: center; text-decoration: none; color: inherit; border-radius: 10px;"
+           data-aos="fade-up" data-aos-delay="100">
+            <h3 style="margin-bottom: 15px;">Наші Послуги</h3>
+            <p>Перегляньте повний каталог процедур для догляду за собою.</p>
+        </a>
+
+        <a href="{% url 'news' %}" class="service-card"
+           style="flex: 1; min-width: 300px; max-width: 400px; padding: 40px; background: #f9f9f9; text-align: center; text-decoration: none; color: inherit; border-radius: 10px;"
+           data-aos="fade-up" data-aos-delay="300">
+            <h3 style="margin-bottom: 15px;">Новини та Акції</h3>
+            <p>Дізнавайтеся першими про спеціальні пропозиції та події.</p>
+        </a>
+
     </div>
 </div>
-
-{% if news %}
-<div style="padding: 0 60px 100px 60px;">
-    <div class="divider" style="margin: 0 0 60px 0;"></div>
-
-    <h3 style="font-size: 14px; text-transform: uppercase; color: #888; letter-spacing: 1px; margin-bottom: 40px;">Journal</h3>
-
-    {% for item in news %}
-    {% if forloop.first %}
-    <div style="display: flex; flex-wrap: wrap; gap: 50px; align-items: center;">
-        {% if item.image %}
-            <div style="flex: 1; min-width: 300px;">
-                <img src="{{ item.image.url }}" alt="{{ item.title }}" style="width: 100%; border-radius: 5px; filter: grayscale(20%);">
-            </div>
-        {% endif %}
-
-        <div style="flex: 1; min-width: 300px;">
-            <p style="font-size: 12px; color: #888; text-transform: uppercase; letter-spacing: 1px;">{{ item.date }}</p>
-            <h2 style="font-size: 36px; margin: 20px 0; font-weight: 400;">{{ item.title }}</h2>
-            <p style="font-size: 16px; margin-bottom: 30px; line-height: 1.8;">{{ item.text|truncatewords:30 }}</p>
-            <a href="{% url 'news' %}" class="btn-modern" style="background: transparent; color: #1a1a1a; border: 1px solid #1a1a1a;">Читати далі</a>
-        </div>
-    </div>
-    {% endif %}
-    {% endfor %}
-</div>
-{% endif %}
 
 {% endblock %}

@@ -6,57 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aura Beauty Studio</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
-        /* --- 1. ЗАГАЛЬНІ НАЛАШТУВАННЯ --- */
-        body { 
-            font-family: 'Montserrat', sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            background-color: #Fdfbf8; /* Молочний фон сайту */
-            color: #1a1a1a; /* Темно-сірий (майже чорний) текст */
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #Fdfbf8;
+            color: #1a1a1a;
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* --- 2. ЧОРНА ШАПКА (HEADER) --- */
-        header { 
-            padding: 20px 60px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            background: #1a1a1a; /* Чорний фон */
-            position: sticky; /* Меню "прилипає" при прокрутці */
+        header {
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #1a1a1a;
+            position: sticky;
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid #333;
         }
-        
-        .logo { 
-            font-size: 24px; 
-            font-weight: 700; 
-            letter-spacing: -1px; 
-            text-transform: uppercase; 
-            color: #fff; /* Білий колір тексту */
-            text-decoration: none; /* Прибираємо підкреслення, бо це посилання */
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            color: #fff;
+            text-decoration: none;
         }
-        
-        /* Посилання в меню */
-        nav a { 
-            text-decoration: none; 
-            color: #ccc; /* Світло-сірий колір */
-            margin-left: 40px; 
-            font-size: 13px; 
-            text-transform: uppercase; 
-            font-weight: 600; 
+
+        nav a {
+            text-decoration: none;
+            color: #ccc;
+            margin-left: 40px;
+            font-size: 13px;
+            text-transform: uppercase;
+            font-weight: 600;
             letter-spacing: 1px;
             position: relative;
             transition: 0.3s;
         }
-        
-        nav a:hover { color: #fff; } /* При наведенні стає білим */
-        
-        /* Ефект білої лінії підкреслення при наведенні */
+
+        nav a:hover { color: #fff; }
+
         nav a::after {
             content: '';
             position: absolute;
@@ -69,25 +67,23 @@
         }
         nav a:hover::after { width: 100%; }
 
-        /* --- ФОН З ФОТО (ТЕМНИЙ ФІЛЬТР 70%) --- */
         .hero-bg {
-            background-image: 
+            background-image:
                 linear-gradient(
                     to bottom,
-                    rgba(0, 0, 0, 0.7),     /* Чорний колір, 70% непрозорості (Дуже темно) */
-                    rgba(0, 0, 0, 0.5) 70%, /* Трохи світліше ближче до низу */
-                    #Fdfbf8 100%            /* Перехід у молочний колір сайту в самому низу */
+                    rgba(0, 0, 0, 0.7),
+                    rgba(0, 0, 0, 0.5) 70%,
+                    #Fdfbf8 100%
                 ),
                 url('{% static "web/images/hero-bg.jpg" %}');
-            
+
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
 
-        /* --- 4. ТИПОГРАФІКА ТА ЕЛЕМЕНТИ --- */
         .big-text {
-            font-size: clamp(40px, 5vw, 80px); /* Адаптивний розмір шрифту */
+            font-size: clamp(40px, 5vw, 80px);
             line-height: 1.1;
             font-weight: 300;
             text-transform: uppercase;
@@ -95,14 +91,13 @@
         }
 
         .divider { border-top: 1px solid #e0e0e0; margin: 0 60px; }
-        
-        /* Сучасна кнопка */
+
         .btn-modern {
             display: inline-block;
             background-color: #1a1a1a;
             color: #fff;
             padding: 15px 40px;
-            border-radius: 50px; /* Овальна */
+            border-radius: 50px;
             text-decoration: none;
             font-size: 14px;
             font-weight: 600;
@@ -115,11 +110,10 @@
         .btn-modern:hover {
             background-color: transparent;
             color: #1a1a1a;
-            transform: translateY(-3px); /* Ефект "підстрибування" */
+            transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        /* Темна секція */
         .dark-section {
             background-color: #1a1a1a;
             color: #fff;
@@ -128,16 +122,33 @@
         .dark-section h2 { color: #fff; }
         .dark-section p { color: #aaa; }
 
-        /* --- 5. ФУТЕР (ПІДВАЛ) --- */
-        footer { 
-            background-color: #1a1a1a; 
-            color: #888; 
-            padding: 80px 60px; 
+        footer {
+            background-color: #1a1a1a;
+            color: #888;
+            padding: 80px 60px;
             font-size: 14px;
             border-top: 1px solid #333;
             text-align: center;
         }
+
+        .btn-modern:hover, .form-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        transition: 0.3s;
+    }
+
+
+        .service-card:hover, .news-card:hover {
+            transform: scale(1.03); /* Збільшити на 3% */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
     </style>
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 </head>
 <body>
 
@@ -155,9 +166,54 @@
     {% block content %}
     {% endblock %}
 
-    <footer>
-        <p>&copy; 2025 Aura Beauty Studio. Всі права захищено.</p>
-    </footer>
+    <footer style="background-color: #1a1a1a; color: #fff; padding: 60px 20px; margin-top: 50px;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px;">
+
+        <div style="flex: 1; min-width: 250px;">
+            <h3 style="font-size: 24px; margin-bottom: 20px;">AURA STUDIO</h3>
+            <p style="color: #aaa; line-height: 1.6;">
+                Твій простір краси та гармонії. Ми створюємо не просто образ, а настрій.
+            </p>
+        </div>
+
+        <div style="flex: 1; min-width: 250px;">
+            <h4 style="font-size: 18px; margin-bottom: 20px; color: #fff;">КОНТАКТИ</h4>
+            <p style="color: #aaa; margin-bottom: 10px;">
+                <i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> м. Київ, вул. Хрещатик, 1
+            </p>
+            <p style="color: #aaa; margin-bottom: 10px;">
+                <i class="fas fa-phone" style="margin-right: 10px;"></i> +38 (097) 123 45 67
+            </p>
+            <p style="color: #aaa;">
+                <i class="fas fa-envelope" style="margin-right: 10px;"></i> hello@aura.com
+            </p>
+        </div>
+
+        <div style="flex: 1; min-width: 250px;">
+            <h4 style="font-size: 18px; margin-bottom: 20px; color: #fff;">ГРАФІК РОБОТИ</h4>
+            <p style="color: #aaa; margin-bottom: 5px;">Пн - Пт: 09:00 - 20:00</p>
+            <p style="color: #aaa; margin-bottom: 5px;">Сб - Нд: 10:00 - 18:00</p>
+
+            <div style="margin-top: 20px;">
+                <a href="https://www.instagram.com/qiqi.nails_?igsh=ajFuMHB4MjZ3ZWdj" target="_blank" style="color: white; font-size: 24px; margin-right: 15px; transition: 0.3s;" onmouseover="this.style.color='#E1306C'" onmouseout="this.style.color='white'">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; border-top: 1px solid #333; margin-top: 40px; padding-top: 20px; color: #666; font-size: 14px;">
+        &copy; 2025 Aura Studio. Всі права захищено.
+    </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true,
+  });
+</script>
 
 </body>
 </html>
