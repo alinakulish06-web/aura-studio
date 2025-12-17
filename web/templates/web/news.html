@@ -1,0 +1,27 @@
+{% extends 'web/base.html' %}
+
+{% block content %}
+<div style="padding: 100px 60px; text-align: center;">
+    <h1 class="big-text" style="padding-bottom: 20px;">Journal</h1>
+    <p>Новини студії та б'юті-тренди</p>
+</div>
+
+<div class="divider" style="margin: 0 60px;"></div>
+
+<div style="padding: 60px;">
+    {% for item in news %}
+    <div style="margin-bottom: 80px; display: flex; gap: 40px; align-items: start;">
+        {% if item.image %}
+            <div style="width: 300px; flex-shrink: 0;">
+                <img src="{{ item.image.url }}" alt="{{ item.title }}" style="width: 100%; border-radius: 5px;">
+            </div>
+        {% endif %}
+        <div>
+            <p style="color: #999; font-size: 14px;">{{ item.date }}</p>
+            <h2 style="font-size: 32px; margin: 10px 0;">{{ item.title }}</h2>
+            <p style="font-size: 18px; line-height: 1.6;">{{ item.text }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

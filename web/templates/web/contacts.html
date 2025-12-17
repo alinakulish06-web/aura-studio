@@ -1,0 +1,56 @@
+{% extends 'web/base.html' %}
+
+{% block content %}
+
+<div style="display: flex; flex-wrap: wrap; min-height: 80vh;">
+
+    <div style="flex: 1; min-width: 300px; background-color: #1a1a1a; color: #fff; padding: 80px 60px; display: flex; flex-direction: column; justify-content: center;">
+        
+        <h1 class="big-text" style="font-size: 50px; margin-bottom: 40px;">Контакти</h1>
+        
+        <div style="margin-bottom: 40px;">
+            <p style="text-transform: uppercase; letter-spacing: 2px; color: #888; font-size: 12px; margin-bottom: 10px;">Локація</p>
+            <p style="font-size: 20px; line-height: 1.6;">
+                м. Київ, вул. Еспланадна, 32<br>
+                <span style="font-size: 16px; color: #ccc;">(метро Палац Спорту)</span>
+            </p>
+        </div>
+
+        <div style="margin-bottom: 40px;">
+            <p style="text-transform: uppercase; letter-spacing: 2px; color: #888; font-size: 12px; margin-bottom: 10px;">Зв'язок</p>
+            <p style="font-size: 20px; margin-bottom: 10px;">
+                <a href="tel:+380970070097" style="color: #fff; text-decoration: none;">+38 (097) 007-00-97</a>
+            </p>
+            <p style="font-size: 18px; color: #888;">Direct: @qiqi.nails_</p> 
+        </div>
+
+        <div style="margin-bottom: 50px;">
+            <p style="text-transform: uppercase; letter-spacing: 2px; color: #888; font-size: 12px; margin-bottom: 10px;">Години роботи</p>
+            <p style="font-size: 16px; color: #ccc;">
+                Будні: 9:00 — 21:00<br>
+                Вихідні: 10:00 — 18:00
+            </p>
+        </div>
+
+        <div style="display: flex; gap: 20px;">
+            <a href="https://www.instagram.com/qiqi.nails_?igsh=ajFuMHB4MjZ3ZWdj" target="_blank" class="btn-modern" style="background: #fff; color: #1a1a1a; padding: 12px 30px; font-size: 12px;">
+                Instagram
+            </a>
+        </div>
+    </div>
+
+    <div style="flex: 1.5; min-width: 300px; background-color: #ddd;">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2540.669145663674!2d30.51956507693175!3d50.43480728759535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cefa0c06775b%3A0xe5432655e81d85f3!2z0LLRg9C7LiDQldGB0L_Qu9Cw0L3QsNC00L3QsCwgMzIsINCa0LjRl9CyLCAwMjAwMA!5e0!3m2!1suk!2sua!4v1702400000000!5m2!1suk!2sua" 
+            width="100%" 
+            height="100%" 
+            style="border:0; filter: grayscale(100%);" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+
+</div>
+
+{% endblock %}

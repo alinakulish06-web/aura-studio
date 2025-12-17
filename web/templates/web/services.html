@@ -1,0 +1,110 @@
+{% extends 'web/base.html' %}
+
+{% block content %}
+<div style="padding: 100px 60px; text-align: center;">
+    <h1 class="big-text" style="padding-bottom: 20px;">Menu</h1>
+    <p>Оберіть свій ідеальний догляд</p>
+</div>
+
+<style>
+    .category-title {
+        font-size: 30px;
+        text-transform: uppercase;
+        font-weight: 300;
+        margin-top: 80px;
+        margin-bottom: 30px;
+        border-bottom: 1px solid #1a1a1a;
+        padding-bottom: 10px;
+        display: inline-block;
+    }
+    .grid-container {
+        display: grid; 
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+        gap: 40px;
+        margin-bottom: 60px;
+    }
+    .service-item {
+        border-bottom: 1px solid #eee; 
+        padding-bottom: 20px;
+    }
+</style>
+
+<div style="padding: 0 60px 100px 60px;">
+
+    {% if nails %}
+        <h2 class="category-title">Нігтьовий сервіс</h2>
+        <div class="grid-container">
+            {% for service in nails %}
+                <div class="service-item">
+                    <div style="display: flex; justify-content: space-between;">
+                        <h3 style="margin: 0; font-size: 22px; font-weight: 400;">{{ service.title }}</h3>
+                        <span style="font-weight: 600;">{{ service.price }}</span>
+                    </div>
+                    <p style="color: #666; margin-top: 10px; font-size: 14px;">{{ service.description }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if brows %}
+        <h2 class="category-title">Брови та Вії</h2>
+        <div class="grid-container">
+            {% for service in brows %}
+                <div class="service-item">
+                    <div style="display: flex; justify-content: space-between;">
+                        <h3 style="margin: 0; font-size: 22px; font-weight: 400;">{{ service.title }}</h3>
+                        <span style="font-weight: 600;">{{ service.price }}</span>
+                    </div>
+                    <p style="color: #666; margin-top: 10px; font-size: 14px;">{{ service.description }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if massage %}
+        <h2 class="category-title">Масаж & SPA</h2>
+        <div class="grid-container">
+            {% for service in massage %}
+                <div class="service-item">
+                    <div style="display: flex; justify-content: space-between;">
+                        <h3 style="margin: 0; font-size: 22px; font-weight: 400;">{{ service.title }}</h3>
+                        <span style="font-weight: 600;">{{ service.price }}</span>
+                    </div>
+                    <p style="color: #666; margin-top: 10px; font-size: 14px;">{{ service.description }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    
+    {% if cosmetology %}
+        <h2 class="category-title">Косметологія</h2>
+        <div class="grid-container">
+            {% for service in cosmetology %}
+                <div class="service-item">
+                    <div style="display: flex; justify-content: space-between;">
+                        <h3 style="margin: 0; font-size: 22px; font-weight: 400;">{{ service.title }}</h3>
+                        <span style="font-weight: 600;">{{ service.price }}</span>
+                    </div>
+                    <p style="color: #666; margin-top: 10px; font-size: 14px;">{{ service.description }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if hair %}
+        <h2 class="category-title">Перукарське мистецтво</h2>
+        <div class="grid-container">
+            {% for service in hair %}
+                <div class="service-item">
+                    <div style="display: flex; justify-content: space-between;">
+                        <h3 style="margin: 0; font-size: 22px; font-weight: 400;">{{ service.title }}</h3>
+                        <span style="font-weight: 600;">{{ service.price }}</span>
+                    </div>
+                    <p style="color: #666; margin-top: 10px; font-size: 14px;">{{ service.description }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+</div>
+{% endblock %}

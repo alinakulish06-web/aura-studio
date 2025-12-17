@@ -1,0 +1,68 @@
+{% extends 'web/base.html' %}
+
+{% block content %}
+<div style="padding: 100px 20px; max-width: 600px; margin: 0 auto; text-align: center;">
+    <h1 class="big-text" style="margin-bottom: 20px;">Запис онлайн</h1>
+    <p style="margin-bottom: 40px; color: #666;">Залиште контакти, і ми зв'яжемося для підтвердження часу.</p>
+
+    <style>
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 10px; /* Трохи зменшив відступ, щоб помилка була ближче */
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            font-family: inherit;
+        }
+        select.form-input {
+            background-color: white;
+            cursor: pointer;
+        }
+        .form-btn {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 15px 40px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+        .form-btn:hover {
+            background: #333;
+        }
+        /* Стиль для помилок */
+        .error-msg {
+            color: #d9534f; /* Червоний колір */
+            font-size: 14px;
+            text-align: left;
+            margin-bottom: 15px;
+            margin-top: -5px;
+        }
+    </style>
+
+    <form method="post">
+        {% csrf_token %}
+        
+        <p style="text-align: left; margin-bottom: 5px; color: #666;">Оберіть послугу:</p>
+        {{ form.service }}
+        
+        {{ form.name }}
+        {% for error in form.name.errors %}
+            <div class="error-msg">{{ error }}</div>
+        {% endfor %}
+
+        {{ form.phone }}
+        {% for error in form.phone.errors %}
+            <div class="error-msg">{{ error }}</div>
+        {% endfor %}
+
+        {{ form.message }}
+        
+        <button type="submit" class="form-btn">Надіслати заявку</button>
+    </form>
+</div>
+{% endblock %}
